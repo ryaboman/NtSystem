@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">		
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Извещения</title>
+		<meta name="description" content="A basic responsive web page – an example from Chapter 1">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="/css/notifications.css">
+		<link rel="stylesheet" href="/css/panels.css">
+		<link rel="stylesheet" href="/css/autocomplete.css">
+		
+		
+		<script type="text/javascript" src="/js/jquery.js"></script>
+		<script type="text/javascript" src="/js/jquery.autocomplete.js"></script>
+		<script type="text/javascript" src="/js/renameFieldTablHTML.js"></script>
+		<script type="text/javascript" src="/js/notifications.js"></script>
+		<script type="text/javascript" src="/js/selectNtf.js"></script>
+	</head>
+	<body>
+	<main class="main">
+		<div id="body_notifications">
+			<div class="IntroWrapper">
+				<p class="IntroText">Система управления извещениями об изменениях КД</p>
+				<div class="MoneyShot">
+					<img class="MoneyShotImg" src="/images/scones.jpg" alt="Incredible scones" />
+				</div>
+			</div>
+			
+			<div class="tabs">
+				<input type="radio" name="inset" value="" id="tab_1" checked>
+				<label for="tab_1">Поиск ИИ</label>
+
+				<input type="radio" name="inset" value="" id="tab_2">
+				<label for="tab_2">Добавить ИИ</label>
+
+				<div id="field_tab_1">
+					<form method="" name="SelectNtf" action="" id="SelectNtf">
+							
+						<div id="description_form">
+							Чтобы получить полную информацию введите любую известную Вам информацию
+							об искомом извещении (можно частичную и неполную):							
+						</div>
+
+						<div class="addInput">
+							<div class="field" title="Введите обозначение ИИ">
+								<label for="QMarkNt">Извещение</label>
+								<input id="QMarkNt" class="reset" type="text" name="QMarkNt" placeholder="Обозначение ИИ">
+							</div>
+									
+							<div class="auto_field" title="Введите обозначение или наименование изделия для которого выпускалось ИИ">
+								<label for="QrDevice">Изделие</label>
+								<input id="QrDevice" type="text" name="QrDevice" placeholder="Изделие" id_in_DB="-1">
+							</div>
+									
+							<div class="field">
+								<label for="QrInpViewDevice">Этап разработки</label>
+								<select id="QrInpViewDevice" title="Выберите вид изделия (Серийное/Опытный образец)">							
+									<option value="0">--</option>
+									<option value="1">Опытный образец</option>
+									<option value="2">Серийное изделие</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="addInput">
+
+							<div class="field">
+								<label for="QrManagerSubject">Руководитель темы</label>
+								<input id="QrManagerSubject" class="reset" type="text" name="QrManagerSubject" placeholder="Руководитель темы">
+							</div>
+							
+							<div class="auto_field">
+								<label for="QrSubject">Тема</label>
+								<input id="QrSubject" type="text" name="QrSubject" placeholder="Тема" id_in_DB="-1">
+							</div>
+							
+							<div class="field">
+								<label for="QrCorrDoc">Корр. документ</label>
+								<input id="QrCorrDoc" class="reset" type="text" name="QrCorrDoc" placeholder="Корректируемые док."></input>
+							</div>
+						
+						</div>
+						
+						<div class="addInput">
+							<div  class="field" title="Введите разработчки ИИ">
+									
+									<label for="QrDeveloper">Инф. об исполнителе</label>
+								
+									<div  class="field_two" title="Введите разработчки ИИ">
+										<input id="QrDeveloper" class="reset" type="text" name="QrDeveloper" placeholder="Разраб. ИИ">
+										<input id="QrDepart" class="a_reset" type="a_dep" name="QrDepart" placeholder="Подраздел.">
+									</div>
+									
+							</div>
+							
+							<div class="field">
+								<label for="dateFrom">Дата, от</label>
+								<input type="date" id="dateFrom" name="dateFrom"/>
+							</div>
+							
+							<div class="field">
+								<label for="dateTo">Дата, по</label>
+								<input type="date" id="dateTo" name="dateTo"/>
+							</div>
+							
+						</div>
+						
+						<div class="addInput">						
+							
+							
+							
+							<div class="field" title="Укажите причину коррекции">
+									<label for="QrInpReasonNtf">Стандартная причина</label>		
+									<select id="QrInpReasonNtf" title="Выберите одну из стандартных причин коррекции" name="reason">
+										<option value="0">--</option>
+										<option value="28">[0] Другое</option>
+										<option value="1">[1] Введение конструктивных улучшений и усовершенствований</option>
+										<option value="2">[2] Введение технологических улучшений и усовершенствований</option>
+										<option value="3">[3] В результате стандартизации и унификации</option>
+										<option value="4">[4] Внедрение и изменение стандартов и технических условий</option>
+										<option value="5">[5] По результатам испытаний</option>
+										<option value="6">[6] Отработка документов с изменением литеры</option>
+										<option value="7">[7] Устранение ошибок</option>
+										<option value="8">[8] Улучшение качества</option>
+										<option value="9">[9] Требование заказчика (представительства заказчика)</option>
+										<option value="10">[10] Изменение схемы</option>
+										<option value="11">[11] Улучшение электрического монтажа</option>
+										<option value="12">[12] Изменение средств технологического оснащения</option>
+										<option value="13">[13] Изменение условий труда</option>
+										<option value="14">[14] Введение новых технологических процессов (операций)</option>
+										<option value="15">[15] Замена исходной заготовки</option>
+										<option value="16">[16] Изменение норм расхода материалов</option>
+										<option value="17">[0] Приведение в соответствие с другими документами</option>
+										<option value="18">[0] Введение новых документов</option>
+										<option value="19">[0] Введение новых типоразмеров</option>
+										<option value="20">[0] Изменение топологии, не связанное со схемными улучшениями</option>
+										<option value="21">[0] Введение массы</option>
+										<option value="22">[0] Окончание срока действия ПИ</option>
+										<option value="23">[0] Восстановление подлинников</option>
+										<option value="24">[0] Изменение грифа</option>
+										<option value="25">[0] Требование серийного предприятия</option>
+										<option value="26">[0] Требование смежных предприятий</option>
+										<option value="27">[0] Предложение серийного предприятия</option>	
+									</select>
+									
+									<label for="Qr_detailed_reason">Дополнительная причина</label>
+									<textarea id="Qr_detailed_reason" class="reset" type="text" name="Qr_detailed_reason" placeholder="СЗ, указания, приказы, заявки, КЛК" autocomplete="off"></textarea>
+								</div>
+							
+							<div class="field">
+								<label for="QrCommentary">Краткое содержание</label>
+								<textarea id="QrCommentary" class="reset commentField" type="text" name="QrCommentary" placeholder="Краткое содержание"></textarea>
+							</div>													
+							
+							<div class="field">
+							
+								<div class="field">
+									<label for="QrLog">Указание о заделе</label>
+									<select id="QrLog" name="QrLog" title="Выберите указание о заделе">
+										<option value="0">--</option>
+										<option value="1">Не отражается</option>
+										<option value="2">Задела нет</option>
+										<option value="3">Изменение в заделе учтено</option>
+										<option value="4">Использовать</option>
+										<option value="5">Использовать на ... компл.</option>
+										<option value="6">Доработать(доукомплектовать)</option>
+										<option value="7">Не использовать</option>
+									</select>						
+								</div>
+								
+								<div id="buttGetNtf">
+									<button  class="btn_field_tab_1" type="submit" style="cursor: pointer;">Получить</button>
+								</div>
+							
+							</div>
+							
+							
+						</div>
+						
+						<div>
+							<a href="/notifications/statistics" target="_blank">
+								<u>Статистика извещений</u>
+							</a>
+						</div>
+																									
+									
+					</form>
+				</div>
+				<div id="field_tab_2">
+						<form enctype="multipart/form-data" method="POST" name="AddNtf" action="/notifications/addNtf" id="AddNt">
+								
+							<div id="description_form">
+								Уважаемые коллеги, при занесении информации в базу данных будьте предельно внимательны.
+								Ведь от нас с вами зависит ее целостность и работоспособность.						
+							</div>
+
+							<div class="addInput">
+							
+								<div id="markNt" class="field">
+									<label for="InpMarkNt">Извещение</label>
+									<input id="InpMarkNt" class="reset" type="text" name="markNt" placeholder="Обозначение ИИ" title="Введите обозначение ИИ" autocomplete="off" required>									
+									<div id="message_markNt" class="error">Недопустимое обозначение ИИ</div>
+								</div>
+										
+								<div class="auto_field">
+									<label for="a_device">Изделие</label>
+									<input name="deviceMarkName" type="text" id="autocompleteDevice" placeholder="Изделие" title="Введите наименование изделия" id_in_DB="-1" required/>
+									<div id="message_autocompleteDevice" class="error">Такого изделия нет в базе</div>
+								</div>
+										
+								<div id="viewDevice" class="field">		
+									<label for="InpViewDevice">Этап разработки</label>		
+									<select id="InpViewDevice" title="Выберите вид изделия (Серийное/Опытный образец)" name="viewDevice">
+										<option value="0">--</option>
+										<option value="1">Опытный образец</option>
+										<option value="2">Серийное изделие</option>
+									</select>
+									<div id="message_viewDevice" class="error">Недопустимый этап разработки</div>
+								</div>
+							
+							</div>
+							
+							<div class="addInput">
+							
+								<div class="field" title="Введите руководителя темы">
+									<label for="managerTopic">Руководитель темы</label>
+									<input class="a_reset" type="managerTopic" name="managerTopic" placeholder="Руководитель темы" required>
+								</div>							
+									
+								<div class="auto_field" title="Введите тему">
+									<label for="a_subject">Тема</label>
+									<input name="subjectMarkName" type="text" id="autocompleteSubject" placeholder="Тема" id_in_DB="-1" required>
+									<div id="message_autocompleteSubject" class="error">Такой темы нет в базе</div>
+								</div>
+							
+								<div id="buttEditDoc" class="field">
+									<label for="a_butt_edit">&nbsp;</label>
+									<div class="field">
+										<button class="btn_field_tab_2" id="a_butt_edit" type="button" title="Указать корректируемые документы" style="cursor: pointer;">Корр. док.</button >
+									</div>
+									<div id="message_logs" class="error">Недопустимый задел</div>
+								</div>
+							</div>
+							
+							<div class="addInput">
+							
+								<div  class="field" title="Введите разработчки ИИ">
+									
+									<label for="a_developer">Инф. об исполнителе</label>
+								
+									<div  class="field_two" title="Введите разработчки ИИ">
+										<input class="a_reset" type="a_developer" name="developer" placeholder="Разраб. ИИ" required>
+										<input class="a_reset" type="a_depart" name="depart" placeholder="Подраздел." required>
+									</div>
+									
+								</div>
+								
+								<div class="field">
+									<label for="a_date">Дата</label>
+									<input type="date" id="date" name="date" required/>
+								</div>															
+								
+								<div class="pdf">
+									<label for="a_summary">Путь к файлу (*.pdf)</label>
+									<input type="hidden" name="MAX_FILE_SIZE" value="9000000"></input>
+									<input type="file" accept="application/pdf" name="pathToPdf"></input>
+								</div>
+							</div>
+
+							<div class="addInput">
+								
+								<div class="field" title="Укажите причину коррекции">
+									<label for="InpReasonNtf">Стандартная причина</label>		
+									<select id="InpReasonNtf" title="Выберите одну из стандартных причин коррекции" name="reason">
+										<option value="28">[0] Другое</option>										
+										<option value="1">[1] Введение конструктивных улучшений и усовершенствований</option>
+										<option value="2">[2] Введение технологических улучшений и усовершенствований</option>
+										<option value="3">[3] В результате стандартизации и унификации</option>
+										<option value="4">[4] Внедрение и изменение стандартов и технических условий</option>
+										<option value="5">[5] По результатам испытаний</option>
+										<option value="6">[6] Отработка документов с изменением литеры</option>
+										<option value="7">[7] Устранение ошибок</option>
+										<option value="8">[8] Улучшение качества</option>
+										<option value="9">[9] Требование заказчика (представительства заказчика)</option>
+										<option value="10">[10] Изменение схемы</option>
+										<option value="11">[11] Улучшение электрического монтажа</option>
+										<option value="12">[12] Изменение средств технологического оснащения</option>
+										<option value="13">[13] Изменение условий труда</option>
+										<option value="14">[14] Введение новых технологических процессов (операций)</option>
+										<option value="15">[15] Замена исходной заготовки</option>
+										<option value="16">[16] Изменение норм расхода материалов</option>
+										<option value="17">[0] Приведение в соответствие с другими документами</option>
+										<option value="18">[0] Введение новых документов</option>
+										<option value="19">[0] Введение новых типоразмеров</option>
+										<option value="20">[0] Изменение топологии, не связанное со схемными улучшениями</option>
+										<option value="21">[0] Введение массы</option>
+										<option value="22">[0] Окончание срока действия ПИ</option>
+										<option value="23">[0] Восстановление подлинников</option>
+										<option value="24">[0] Изменение грифа</option>
+										<option value="25">[0] Требование серийного предприятия</option>
+										<option value="26">[0] Требование смежных предприятий</option>
+										<option value="27">[0] Предложение серийного предприятия</option>	
+									</select>
+									
+									<label for="detailed_reason">Дополнительная причина</label>
+									<textarea class="reset" type="" name="detailed_reason" maxlength="255" placeholder="СЗ, указания, приказы, заявки, КЛК" autocomplete="off" required></textarea>
+								</div>	
+									
+								<div class="field">
+									<label for="a_summary">Краткое содержание</label>
+									<textarea class="reset commentField" type="a_summary" name="summary" maxlength="255" placeholder="Краткое содержание" autocomplete="off" required></textarea>
+								</div>
+								
+								<div id="buttAddNtf">							
+									<button id="btn_add_ntf" class="btn_field_tab_2" type="button" title="Кнопка станет активной после того, как будут заполнены поля формы">
+										Добавить
+									</button>
+								</div>
+								
+							</div>								
+											
+							<div class="dialog_box" id="balance">
+							  <div id="windowCorrDoc">			
+								<fieldset id="AddCorrDoc">
+									 <legend>Форма указания задела корректируемых документов</legend>	
+										
+										
+										<div id="divTab">
+									 
+											<table class="notifications" id="dynamic">
+
+												<tbody>
+													<tr>
+													
+														<th scope="col">&nbsp;</th>
+														
+														<th class="sectiontableheader" id="count">
+															<div>Обозначение</div>
+															<div>корректируемого документа</div>		
+														</th>
+
+														<th class="sectiontableheader" id="tableOrdering">
+															<div>Указание о заделе</div>
+															<div><input id="cmm" type="checkbox" name="a" value="1">Общий задел</input></div>
+														</th>
+													
+													</tr>
+												
+													<tr id="rowsTabl" class="sectiontableentry1">
+													
+														<td width="36px">&nbsp;</td>
+														<td headers="count"><input class="field" type="text" required name="corrDoc0" autocomplete="off" ></td>
+														<td headers="tableOrdering"><select class="slt" id="vV" title="Выберите указание о заделе" name="slt0">
+																<option value="0">--</option>
+																<option value="1">Не отражается</option>
+																<option value="2">Задела нет</option>
+																<option value="3">Изменение в заделе учтено</option>
+																<option value="4">Использовать</option>
+																<option value="5">Использовать на ... компл.</option>
+																<option value="6">Доработать (доукомплектовать)</option>
+																<option value="7">Не использовать</option>
+															</select>		
+																	
+														</td>
+																				
+															
+													</tr>
+												
+												
+												
+												</tbody>
+											
+											</table>
+									 
+										</div>
+												
+									
+
+										<button id="add_row" type="button" style="cursor: pointer;">+</button>
+
+																					
+								</fieldset>
+								
+								<button id="corr_doc" type="button" style="cursor: pointer;">ОК</button>
+								
+								
+							  </div>
+							</div>
+						
+							
+										
+						</form>
+				</div>
+			</div>		
+
+			<div id="tblNtf">
+				<a name="tblNtf"></a>
+				<div style="display: flex; justify-content: center;">Таблица извещений в соответствие с Вашим запросом (50 max)</div>
+				<table class="notifications" id="tblNotifications">
+
+						<tbody><tr>
+							<th class="sectiontableheader" id="count">
+								№		
+							</th>
+
+							<th class="sectiontableheader" id="tableOrdering">
+								Обозначение
+							</th>
+							
+							<th class="sectiontableheader" id="device">
+								Изделие
+							</th>
+								
+							<th class="sectiontableheader" id="date">
+								Дата		
+							</th>						
+						</tr>				
+						
+				</tbody></table>
+			</div>
+			
+			
+		</div>
+	</main>
+	
+	<form class="dialog_box" id="FormAddDevice" method="POST" name="FormAddDevice" action="">
+		<div id="windowAddDevice">			
+			<fieldset id="AddDevice">								 
+				<legend>Форма добавления изделия в БД</legend>
+				
+				<div class="field">
+					<label>Наименование изделия</label>
+					<input type="text" id="AddNameDevice" name="deviceName" autocomplete="off" required>
+				</div>
+					 
+				<div class="field">
+					<label>Обозначение изделия</label>
+					<input type="text" id="AddMarkDevice" name="deviceMark" autocomplete="off" required>
+				</div>
+					 
+				<div id="buty">
+					<button type="button" class="btCancel" id="btCancel" style="cursor: pointer;">Отмена</button>
+					<button class="btSubmit" id="btAddDevice" type="submit" style="cursor: pointer;">Добавить</button>
+				</div>
+				
+			</fieldset>			
+		</div>
+	</form>
+	
+	
+	<form class="dialog_box" id="FormAddSubject" method="POST" name="FormAddSubject" action="">
+		<div id="windowAddSubject">			
+			<fieldset id="AddSubject">								 
+				<legend>Форма добавления темы в БД</legend>
+				
+				<div class="field">
+					<label>Наименование темы</label>
+					<input type="text" id="AddNameSubject" name="subjectName" autocomplete="off" required>
+				</div>
+					 
+				<div class="field">
+					<label>Обозначение темы</label>
+					<input type="text" id="AddMarkSubject" name="subjectMark" autocomplete="off" required>
+				</div>
+				
+				<div class="field">
+					<label>Руководитель темы</label>
+					<input type="text" id="AddManagerSubject" name="subjectManager" autocomplete="off">
+				</div>
+					 
+				<div id="buty">
+					<button class="btCancel" type="button" id="btCancelSubject" style="cursor: pointer;">Отмена</button>
+					<button class="btSubmit" id="btAddSubject" type="submit" style="cursor: pointer;">Добавить</button>
+				</div>
+				
+			</fieldset>			
+		</div>
+	</form>
+	
+	<div class="dialog_box" id="waiting" style="diplay: flex; flex-direction: column; justify-content: center;">
+		<img src="/css/waiting_indicator.gif" />
+		<p style="color: white; font-size: 34px;">Обрабатываем Ваш запрос</p>		
+	</div>
+
+
+	<div th:insert="panels :: panels"></div>
+		
+</body>
+
+	
+
+</html>

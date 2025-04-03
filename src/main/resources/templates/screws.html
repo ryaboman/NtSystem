@@ -1,0 +1,102 @@
+<!DOCTYPE html> <!-- Объявление формата документа -->
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Крепежные элементы</title>
+
+	<link rel="stylesheet" href="/css/screws.css" type="text/css">
+	<link rel="stylesheet" href="/css/panels.css">
+
+	<script src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/OST_95_1435_73.js"></script>
+	<script type="text/javascript" src="/js/OST_95_1438_73.js"></script>
+	<script type="text/javascript" src="/js/OST_95_1439_73.js"></script>
+	<script type="text/javascript" src="/js/OST_95_1452_73.js"></script>
+	<script type="text/javascript" src="/js/OST_95_1462_73.js"></script>
+	<script type="text/javascript" src="/js/OST_95_1463_73.js"></script>
+	<script src="/js/screws.js"></script>
+
+</head>
+
+	<body>
+		<main class="main">
+		
+			<div id="topicName">
+				<h2>
+					Изделия крепежные
+				</h2>
+			</div>
+		
+			<form method="" name="screwsForm" action="" id="screwsForm">
+				<div class="field">
+					<label for="ost">Тип</label>
+					<select name="ost" id="slt_ost">
+						<option value="*">*</option>
+						<option value="ОСТ 95 1435-73">Болт ОСТ 95 1435-73</option>
+						<option value="ОСТ 95 1438-73">Винт ОСТ 95 1438-73</option>
+						<option value="ОСТ 95 1439-73">Винт ОСТ 95 1439-73</option>
+						<option value="ОСТ 95 1452-73">Гайка ОСТ 95 1452-73</option>
+						<option value="ОСТ 95 1462-73">Шайба ОСТ 95 1462-73</option>
+						<option value="ОСТ 95 1463-73">Шайба ОСТ 95 1463-73</option>
+					</select>
+				</div>
+				
+				<div class="field">
+					<label for="material">Материал</label>
+					<select name="material" id="slt_material">
+						<option value="">*</option>
+					</select>
+				</div>
+
+				<div class="field">
+					<label for="diameter">Диаметр</label>
+					<select name="diameter" id="slt_diameter">
+						<option>*</option>
+					</select>
+				</div>
+
+				<div class="field">
+					<label for="thread_pitch">Шаг резьбы</label>
+					<select name="thread_pitch" id="slt_thread_pitch">
+						<option>*</option>
+					</select>	
+				</div>
+
+				<div class="field">
+					<label for="slt_covering">Покрытие</label>
+					<select name="covering" id="slt_covering">
+						<option>*</option>
+					</select>
+				</div>
+
+				<div class="field">
+					<label for="length">Длина</label>
+					<select name="length" id="slt_length">
+						<option>*</option>
+					</select>
+				</div>	
+
+				<div class="field_result">
+					<label for="">Условное обозначение</label>
+					<input type="text" class="out_field" id="mark_screw">
+				</div>
+
+			</form>
+
+			<div class="field_notes">
+				<div class="note">Примечания:</div>
+				<div class="note">1) Условное обозначение (УО) оптимизировано для вставки в Компас 3D. При вставке Компас автоматически заменит символ '•' на 'x'.</div>
+				<div class="note">2) Символом '*' обозначен учет всех пунктов выпадающего меню.</div>
+				<div class="note">3) Размеры крепежных элементов, заключенные в скобки, применять не рекомендуется.</div>
+				<div class="note">4) Символ '^' обозначает не стандартный шаг резьбы.</div>
+				<div class="note">5) Замечания и предложения Вы можете направлять Алексею Рябову (т.31-03) ryaaa@local.niiis.nnov.ru</div>
+			</div>			
+			
+		</main>
+
+		<div th:insert="panels :: panels"></div>
+		
+	</body>
+
+</html>

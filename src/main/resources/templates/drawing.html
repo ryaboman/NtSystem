@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">		
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Систематизированные чертежи</title>
+		<meta name="description" content="A basic responsive web page – an example from Chapter 1">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="/css/drawing.css">
+		<link rel="stylesheet" href="/css/panels.css">
+		
+		
+		<script type="text/javascript" src="/js/jquery.js"></script>
+		<script type="text/javascript" src="/js/jquery.js"></script>
+		<script type="text/javascript" src="/js/getDrawing.js"></script>
+		
+	</head>
+	
+	<body>
+	<main class="main">
+	
+		<div id="body_notifications">
+				
+				<br>
+				<br>
+				
+				<div id="description_form">Систематизированные чертежи</div>
+				
+				<div class="tabs">
+				
+					<input type="radio" name="inset" value="" id="tab_1" checked>
+					<label for="tab_1">Поиск КД</label>
+
+					<input type="radio" name="inset" value="" id="tab_2">
+					<label for="tab_2">Добавить КД</label>
+					
+					<div id="field_tab_1">
+						<form method="" name="getDrawing" action="" id="getDrawing">
+							<fieldset class="border_form">
+							
+								<legend>Поиск чертежей</legend>
+								
+								<div class="field" title="Наименование документа">
+									<input id="drawing_name" class="device" name="device_0" placeholder="Наименование"/>
+								</div>								
+										
+								<div class="field" title="Обозначение документа">
+									<input id="drawing_mark" class="device" name="device_0" placeholder="Обозначение"/>
+								</div>	
+											
+
+							</fieldset>
+						
+							<div id="getInfo">
+								<button class="btSubmit" type="submit" style="cursor: pointer;">Найти</button>
+							</div>
+							
+						</form>
+					</div>
+					
+					<div id="field_tab_2">
+						<form enctype="multipart/form-data" method="POST" name="addDrawing" action="/drawing/addDrawing" id="addDrawing">
+							<fieldset class="border_form">
+							
+								<legend>Добавление чертежей</legend>
+								
+								<div class="field" title="Наименование документа">
+									<input id="drawing_name" class="device" name="drawing_name" placeholder="Наименование"/>
+								</div>								
+										
+								<div class="field" title="Обозначение документа">
+									<input id="drawing_mark" class="device" name="drawing_mark" placeholder="Обозначение"/>
+								</div>	
+								
+								<div class="file">
+									<label class="a_summary">Путь к файлу (*.pdf, *.jpg, *.png)</label>
+									<input type="hidden" name="MAX_FILE_SIZE" value="9000000"></input>
+									<input type="file" accept="application" name="pathToFile"></input>
+								</div>
+
+							</fieldset>
+						
+							<div id="getInfo">
+								<button class="btSubmit" type="submit" style="cursor: pointer;">Добавить</button>
+							</div>
+							
+						</form>
+					</div>
+				
+				</div>
+				
+		</div>
+		
+		<div id="tblNtf">
+			<a name="tblNtf"></a>
+			<div style="display: flex; justify-content: center;">Таблица чертежей в соответствие с Вашим запросом</div>
+			<table style="display: flex; justify-content: center;" class="notifications" id="tblNotifications">
+
+				<tbody><tr>
+					<th class="sectiontableheader" id="count">
+						№		
+					</th>
+
+					<th class="sectiontableheader" id="tableOrdering">
+						Обозначение
+					</th>
+									
+					<th class="sectiontableheader" id="device">
+						Наименование
+					</th>
+										
+					<th class="sectiontableheader" id="date">
+						Дата обновления		
+					</th>						
+				</tr>				
+						
+				</tbody></table>
+		</div>
+			
+	
+	</main>
+	
+	<div class="dialog_box" id="waiting" style="diplay: flex; flex-direction: column; justify-content: center;">
+		<img src="/css/waiting_indicator.gif" />
+		<p style="color: white; font-size: 34px;">Обрабатываем Ваш запрос</p>		
+	</div>
+
+	<div th:insert="panels :: panels"></div>
+		
+</body>
+
+	
+
+</html>

@@ -1,0 +1,141 @@
+
+#topicName{
+    width: 100%;
+    display: flex;
+	justify-content: center;
+}
+
+#body_notifications {
+	padding: 1rem .5rem;
+	font-size: 1.3rem;
+	line-height: 1.2;
+	max-width: 60rem;
+	margin: 0 auto;
+	color: #333;
+}
+
+#messagePassword, #messageEmail, #messagePswdOld, #messageLengthPSWD{
+	display: none;
+	color: red;
+	font-size: 12px;
+}
+
+#data{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+#dataInput, #dataAboutPersonal{
+
+	padding-left: 50px;
+	padding-right: 50px;
+
+}
+
+.nameField{
+	color: #ababab;
+	font-size: 1rem;
+}
+
+.dataFromDB{
+	color: #1166d2;
+	font-size: 1.5rem;
+}
+
+.cell{
+	padding: 15px 0;
+}
+
+#editPersonalData a{
+	color: #1166d2;
+	text-decoration: underline;
+	font-size: 0.8rem;
+}
+
+form {	
+    width: 500px;
+	padding: 30px;
+	color: black;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+.content
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#pesonInformation
+{    
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+	align-content: center;
+    flex-direction: column;
+}
+
+#workInformation{
+    width: 45%;
+}
+
+.field{
+	padding-bottom: 10px;
+	width: 270px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+#buttSaveForm{
+	width: 270px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+button{
+	cursor: pointer;
+	border-width: 0;
+	display: block;
+	color: white;
+	font-size: 14px;
+	outline: none;
+	text-transform: uppercase;
+    
+    padding: 10px 0;
+    width: 120px;
+    height: 38px;
+    margin: 25px auto 0;
+    background: #23b319;
+}
+
+.block-vert-line{
+    border-left:3px solid #e6e6e6;
+    padding-left:15px;
+}
+
+
+.field input, #rowsTabl input, select {
+  width: 250px;
+  padding: 10px 15px;
+  border-width: 0;
+  background: #e6e6e6;
+  outline: none; 
+}
+
+
+
+
+@media screen and (min-width: 50rem) {
+
+
+}

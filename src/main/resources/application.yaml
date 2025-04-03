@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: NtSystem
+
+  datasource:
+    url: jdbc:postgresql://192.168.31.101:5432/nt_system
+    username: root
+    password: 123456
+
+  liquibase:
+    change-log: db/changelog/main-changelog.xml
+    enabled: true

@@ -1,0 +1,61 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1743340848951-1" author="Aleksey">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="users"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="users">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="login" type="varchar(15)" defaultValue="">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="surname" type="varchar(45)" defaultValue=""/>
+            <column name="name" type="varchar(45)" defaultValue=""/>
+            <column name="patronymic" type="varchar(45)" defaultValue=""/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1743343398067-1" author="Aleksey">
+        <addColumn tableName="users">
+            <column name="mail_reg" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    
+    <changeSet id="1743358858951-1" author="Aleksey">
+        <renameColumn tableName="users" oldColumnName="login" newColumnName="username"/>
+        <addColumn tableName="users">
+            <column name="password" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="tinyint" defaultValue="1">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="1743604331139-1" author="Aleksey">
+        <addColumn tableName="users">
+            <column name="role" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="1743562695323-1" author="Aleksey">
+        <preConditions>
+            <tableIsEmpty tableName="users"/>
+        </preConditions>
+
+        <loadData tableName="users" file="db/data/users-data.csv"/>
+    </changeSet>
+
+
+</databaseChangeLog>

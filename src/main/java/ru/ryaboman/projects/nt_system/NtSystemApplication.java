@@ -1,4 +1,4 @@
-package ru.ryaboman.projects.ntsystem;
+package ru.ryaboman.projects.nt_system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

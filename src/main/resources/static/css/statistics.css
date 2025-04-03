@@ -1,0 +1,313 @@
+
+.container { width: 800px; margin: 0 auto; }
+
+.autocomplete-suggestions { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-no-suggestion { padding: 2px 5px;}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; color: #000; }
+.autocomplete-group { padding: 2px 5px; font-weight: bold; font-size: 16px; color: #000; display: block; border-bottom: 1px solid #000; }
+
+/*input { font-size: 28px; padding: 10px; border: 1px solid #CCC; display: block; margin: 20px 0; }*/
+
+#body_notifications {
+	padding: 1rem .5rem;
+	font-size: 1.3rem;
+	line-height: 1.2;
+	max-width: 60rem;
+	margin: 0 auto;
+	color: #333;
+	
+}
+
+/*всплывающая форма*/
+
+.dialog_box{
+	
+	align-items: center;
+	justify-content: center;
+	
+	display: flex;
+	display: none;
+	
+	background: #0009;
+	height: 100%;
+	opacity: 1;
+	position: fixed;
+	
+	width: 100%;
+	z-index: 100;
+	top: 0;
+	left: 0;
+}
+
+#fileExcel{
+	display: flex;
+	display: none;
+
+	padding-top: 50px;
+	
+	font-size: 1rem;
+	width: 400px;
+	
+	align-items: center;
+	justify-content: center;
+	
+}
+
+form {
+	padding-top: 100px;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	/*border-bottom: 8px double #cfb671;*/
+}
+
+
+#tbDevices{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+#border_form{
+	width: 540px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	
+	padding-left: 10px;
+	padding-right: 10px;
+
+	padding-top: 20px;
+	padding-bottom: 20px;	
+}
+
+#getReport{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	
+	padding-left: 10px;
+	padding-right: 10px;
+
+	padding-top: 100px;
+	padding-bottom: 20px;	
+}
+
+#description_form{
+	margin-bottom: 20px;
+	width: 92%;
+	font-size: 1.5rem;
+	
+	display: flex;
+	justify-content: center;
+}
+
+#add_row{
+	margin-left: 75px;
+	border-width: 0;
+	display: block;
+	width: 100px;
+	height:40px;
+	background: #23b319;
+	color: white;
+	font-size: 14px;
+	outline: none;
+	text-transform: uppercase;
+}
+
+#getInfo{
+	width: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.device{    
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	width: 250px;
+	padding: 10px 15px;
+	border-width: 0;
+	
+	outline: none;
+	margin: 0;  	
+}
+
+/*Форма указания задела корректируемых документов*/
+.main{
+	position: fixed;
+	height: 100%;
+}
+
+
+.btSubmit{
+	padding: 10px 0;
+	border-width: 0;
+	display: block;
+	width: 120px;
+	margin: 25px auto 0;
+	background: #23b319;
+	color: white;
+	font-size: 14px;
+	outline: none;
+	text-transform: uppercase;
+}
+
+
+.btDelete button{
+	cursor: pointer;
+	border-width: 0;
+	display: block;
+	background: #FF6347;
+	color: white;
+	font-size: 14px;
+	outline: none;
+	text-transform: uppercase;
+}
+
+
+.field{
+	width: 270px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-start;
+}
+
+
+.field input, select {
+  width: 250px;
+  padding: 10px 15px;
+  border-width: 0;
+  background: #e6e6e6;
+  outline: none;
+  margin: 0;  
+}
+
+
+.addInput{
+	width: 540px;
+	display: flex;
+	flex-wrap: nowrap;	
+	justify-content: space-between;
+	padding-bottom: 20px;
+}
+
+
+.description_form{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	font-size: 18px;
+}
+
+img {
+	max-width: 100%;
+}
+
+.notifications{
+	display: flex;
+	justify-content: center;
+	
+	/*изменине расстояния между ячейками в таблице (30px - горизонатальное, 8px - вертикальное)*/
+	border-spacing: 50px 12px; 
+}
+
+
+.Header {
+	text-align: center;	
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
+}
+
+.Strap {
+	font-size: 1rem;
+}
+
+
+.MoneyShot {
+	position: relative;
+}
+
+.MoneyShotImg {
+	border: 2.5px solid #e8cfa9;
+	border-radius: 4px;
+}
+
+.LogoWrapper {
+	display: block;
+}
+
+.ImageCaption {
+	font-size: .75rem;
+	position: absolute;
+	bottom: .5rem;
+	right: 1rem;
+}
+
+.IntroText {
+	font-size: 1.8rem;
+	font-style: italic;
+}
+
+.MethodWrapper li {
+	padding: .4rem 0;
+}
+
+.MethodWrapper li:after {
+	content: "✼";
+	display: block;
+	text-align: center;
+	margin: 1rem 0 .5rem 0;
+	color: #eee;
+}
+
+
+
+@media screen and (min-width: 50rem) {
+
+
+	.IntroWrapper {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	.MoneyShot,
+	.IntroText {
+		display: table-cell;
+		width: 50%;
+		vertical-align: middle;
+		text-align: right;
+	}
+
+	.IntroText {
+		padding: .5rem;
+		font-size: 2.5rem;
+		text-align: left;
+		position: relative;
+	}
+
+	.Ingredients {
+		font-size: .9rem;
+		float: right;
+		padding: 1rem;
+		margin: 0 0 .5rem 1rem;
+		border-radius: 3px;
+		background-color: #ffffdf;
+		border: 2px solid #e8cfa9;
+	}
+
+	.Ingredients h3 {
+		margin: 0;
+	}
+}

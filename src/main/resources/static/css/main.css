@@ -1,0 +1,179 @@
+
+.container { width: 800px; margin: 0 auto; }
+
+.autocomplete-suggestions { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-no-suggestion { padding: 2px 5px;}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; color: #000; }
+.autocomplete-group { padding: 2px 5px; font-weight: bold; font-size: 16px; color: #000; display: block; border-bottom: 1px solid #000; }
+
+/*input { font-size: 28px; padding: 10px; border: 1px solid #CCC; display: block; margin: 20px 0; }*/
+
+#body_news {
+		
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: start;
+	min-height: 900px;
+	padding: 1rem .5rem;
+	font-size: 1.3rem;
+	max-width: 60rem;
+	margin: 0 auto;
+	color: #333;
+}
+
+#body_random_animate {
+		
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: start;
+	min-height: 90px;
+	padding: 1rem .5rem;
+	font-size: 1.3rem;
+	max-width: 60rem;
+	margin: 0 auto;
+	color: #333;
+}
+
+#content{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+#text{
+	padding-left: 30px;
+	width: 500px;
+	font-size: 1.2rem;
+}
+
+.news{
+	padding-top: 25px;
+	max-height: 300px;
+}
+
+#getInfo{
+	width: 100%;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+/*Форма указания задела корректируемых документов*/
+.main{
+	position: fixed;
+}
+
+
+
+
+
+
+.description_form{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	font-size: 18px;
+}
+
+img {
+	max-width: 100%;
+}
+
+
+
+.Header {
+	text-align: center;	
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+}
+
+.Strap {
+	font-size: 1rem;
+}
+
+
+.MoneyShot {
+	position: relative;
+}
+
+.MoneyShotImg {
+	border: 2.5px solid #e8cfa9;
+	border-radius: 4px;
+}
+
+.LogoWrapper {
+	display: block;
+}
+
+.ImageCaption {
+	font-size: .75rem;
+	position: absolute;
+	bottom: .5rem;
+	right: 1rem;
+}
+
+.IntroText {
+	font-size: 1.8rem;
+	font-style: italic;
+}
+
+.MethodWrapper li {
+	padding: .4rem 0;
+}
+
+.MethodWrapper li:after {
+	content: "✼";
+	display: block;
+	text-align: center;
+	margin: 1rem 0 .5rem 0;
+	color: #eee;
+}
+
+
+
+@media screen and (min-width: 50rem) {
+
+
+	.IntroWrapper {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	.MoneyShot,
+	.IntroText {
+		display: table-cell;
+		width: 50%;
+		vertical-align: middle;
+		text-align: right;
+	}
+
+	.IntroText {
+		padding: .5rem;
+		font-size: 2.5rem;
+		text-align: left;
+		position: relative;
+	}
+
+	.Ingredients {
+		font-size: .9rem;
+		float: right;
+		padding: 1rem;
+		margin: 0 0 .5rem 1rem;
+		border-radius: 3px;
+		background-color: #ffffdf;
+		border: 2px solid #e8cfa9;
+	}
+
+	.Ingredients h3 {
+		margin: 0;
+	}
+}

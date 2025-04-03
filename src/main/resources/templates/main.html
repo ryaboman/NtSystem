@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+	<head>
+		<title>Сайт КО 3630</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/panels.css">
+		<link rel="shortcut icon" href="/images/favicon_0.ico" type="image/x-icon">
+	</head>
+	<body>
+		<main class="main">
+		
+			<h3 class="Header">Случайная анимация</h3>	
+		
+			<div id="body_random_animate">
+<!--				<video src="{$data['src']}" controls height="300"></video>-->
+			</div>
+			
+			<h1 class="Header">Новостная лента</h1>				
+			
+			<div id="body_news">
+
+<!--				{foreach $data['news'] as $corr}	-->
+					<div class="news">
+					
+						<div id="titile">
+<!--							<h4>{$corr->title}</h4>-->
+						</div>
+						
+						<div id="content">
+						
+<!--							<img class="coverImg" src="{$corr->cover}" alt="Image" width="100" />-->
+							
+							<div id="text">
+<!--								{$corr->text}-->
+							</div>
+							
+						</div>
+						
+					</div>
+<!--				{/foreach}-->
+				
+				
+			</div>
+			
+		</main>
+		
+<!--		{include file = 'panels.tpl'}-->
+			<div th:insert="panels :: panels"></div>
+		
+	</body>
+
+	
+
+</html>

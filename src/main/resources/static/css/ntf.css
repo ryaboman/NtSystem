@@ -1,0 +1,61 @@
+#infoNtf{
+	display: flex;
+	
+	flex-direction: column;
+	
+	width: 900px;
+	
+	padding: 1rem .5rem;
+	font-size: 1.3rem;
+	line-height: 1.2;
+	margin: 0 auto;
+	color: #333;
+}
+
+#ntfFromDB{
+	padding: 15px 0;
+	font-size: 2rem;
+}
+
+#commentaryFromDB{
+	width: 40%;
+	
+	padding: 15px 0;
+}
+
+
+#commentaryFromDB{
+	padding: 15px 0;
+}
+
+.nameField{
+	color: #ababab;
+	font-size: 1rem;
+}
+
+.dataFromDB{
+	color: #1166d2;
+}
+
+.dataFromDB a{
+	color: #1166d2;
+}
+
+.rowsInfo{
+	display: flex;
+	
+	flex-direction: row;
+	
+	justify-content: space-between;
+	
+	padding: 15px 0;
+	
+}
+
+.rowsInfo a{
+	text-decoration: underline;
+}
+
+.elementInfo{
+	width: 40%;
+}
