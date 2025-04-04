@@ -72,25 +72,28 @@ $(document).ready(function(){
 	//Отправка формы добавления изделия в БД
 	$("#FormAddDevice").submit(function(event) { //устанавливаем событие отправки для формы с id=form
 			event.preventDefault();
-			
-			var deviceName = document.getElementById('AddNameDevice').value;
-			var deviceMark = document.getElementById('AddMarkDevice').value;
-			//var form_data = $(this).serialize(); //собераем все данные из формы
+			//var device = {}
+			//device["name"] = document.getElementById('AddNameDevice').value;
+			//device["mark"] = document.getElementById('AddMarkDevice').value;
+		    //JSON.stringify(device),
+			var form = document.getElementById('FormAddDevice');
+			var device = $('#FormAddDevice').serialize(); //собераем все данные из формы
+			//var strJSONData = {mark: deviceMark, name: deviceName, _csrf:_csrf};
             $.ajax({
 				type: "POST", //Метод отправки
+				data: device, //
 				url: "/devices", //путь до php файла отправителя
-				data: {deviceName: deviceName, deviceMark: deviceMark},
-				success: function(data) {					
+				success: function(data) {
 					alert(data);
-					document.getElementById('FormAddDevice').style.display='none';					
-					
+					document.getElementById('FormAddDevice').style.display='none';
+
 					$('#autocompleteDevice').val('[ ' + deviceMark + ' ] ' + deviceName);
-					
+
 					$('#AddNameDevice').val('');
 					$('#AddMarkDevice').val('');
-					
+
 				}
-			});			
+			});
     });
 	
 	

@@ -290,10 +290,8 @@ jQuery.autocomplete = function(input, options) {
 			if( !hasFocus || data.length == 0 ) 
 				{
 					if(data.length == 0)
-					{				
-						var addDevice = new Array("Добавить...");
-						data[0] = addDevice;
-						//{AddNameDevice: nameDevice, AddMarkDevice: markDevice}alert(data[0]);
+					{
+						data[0] = {mark: "", name: "Добавить..."};
 					}
 					else					
 						return hideResultsNow();
