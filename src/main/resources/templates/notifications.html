@@ -7,6 +7,11 @@
 		<title>Извещения</title>
 		<meta name="description" content="A basic responsive web page – an example from Chapter 1">
 		<meta name="viewport" content="width=device-width">
+
+		<meta name="_csrf" th:content="${_csrf.token}"/>
+		<!-- default header name is X-CSRF-TOKEN -->
+		<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
 		<link rel="stylesheet" href="/css/notifications.css">
 		<link rel="stylesheet" href="/css/panels.css">
 		<link rel="stylesheet" href="/css/autocomplete.css">
@@ -485,7 +490,7 @@
 	</div>
 
 
-	<div th:insert="panels :: panels"></div>
+	<div th:insert="~{panels :: panels}"></div>
 		
 </body>
 

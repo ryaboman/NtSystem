@@ -72,22 +72,20 @@ $(document).ready(function(){
 	//Отправка формы добавления изделия в БД
 	$("#FormAddDevice").submit(function(event) { //устанавливаем событие отправки для формы с id=form
 			event.preventDefault();
-			//var device = {}
-			//device["name"] = document.getElementById('AddNameDevice').value;
-			//device["mark"] = document.getElementById('AddMarkDevice').value;
-		    //JSON.stringify(device),
+			var formDevice = {}
+			formDevice["name"] = document.getElementById('AddNameDevice').value;
+			formDevice["mark"] = document.getElementById('AddMarkDevice').value;
+			formDevice["_csrf"] = document.querySelector('meta[name=\'_csrf\']').content;
 			var form = document.getElementById('FormAddDevice');
 			var device = $('#FormAddDevice').serialize(); //собераем все данные из формы
-			//var strJSONData = {mark: deviceMark, name: deviceName, _csrf:_csrf};
             $.ajax({
 				type: "POST", //Метод отправки
-				data: device, //
+				data: formDevice, //
 				url: "/devices", //путь до php файла отправителя
 				success: function(data) {
-					alert(data);
 					document.getElementById('FormAddDevice').style.display='none';
 
-					$('#autocompleteDevice').val('[ ' + deviceMark + ' ] ' + deviceName);
+					$('#autocompleteDevice').val('[ ' + formDevice["mark"] + ' ] ' + formDevice["name"]);
 
 					$('#AddNameDevice').val('');
 					$('#AddMarkDevice').val('');

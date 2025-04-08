@@ -335,7 +335,12 @@ jQuery.autocomplete = function(input, options) {
 		if( (options.maxItemsToShow > 0) && (options.maxItemsToShow < num) ) num = options.maxItemsToShow;
 
 		for (var i=0; i < num; i++) {
-			var row = data[i].mark + data[i].name;
+			var mark = data[i].mark;
+			var name = data[i].name;
+			if(mark.length != 0) {
+				mark = mark + " _ ";
+			}
+			var row = mark + name;
 			if (!row) continue;
 			var li = document.createElement("li");
 			li.setAttribute("id_in_DB", data[i].id);

@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 	<head>
-		<title>Сайт КО 3630</title>
+		<title>Главная страница</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="viewport" content="width=device-width">
@@ -48,7 +48,7 @@
 		</main>
 		
 <!--		{include file = 'panels.tpl'}-->
-			<div th:insert="panels :: panels"></div>
+			<div th:insert="~{panels :: panels}"></div>
 		
 	</body>
 

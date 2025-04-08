@@ -18,7 +18,18 @@ import java.util.Optional;
 public class DeviceServiceImpl implements DeviceService {
     private final DAODevice daoDevice;
 
+    @Override
     public List<Device> findByNameContaining(String deviceName){
-        return daoDevice.findByNameContaining(deviceName);
+        return daoDevice.findByNameContainingIgnoreCase(deviceName);
+    }
+
+    @Override
+    public Device save(Device device) {
+        return daoDevice.save(device);
+    }
+
+    @Override
+    public List<Device> findAll() {
+        return daoDevice.findAll();
     }
 }

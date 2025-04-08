@@ -11,5 +11,7 @@ import java.util.Optional;
 public interface DAODevice extends JpaRepository<Device, Long> {
     Optional<Device>  findById(Long deviceId);
     Device findByName(String deviceName);
-    List<Device> findByNameContaining(String deviceName);
+    List<Device> findByNameContainingIgnoreCase(String deviceName);
+    Device save(Device device);
+    List<Device> findAll();
 }

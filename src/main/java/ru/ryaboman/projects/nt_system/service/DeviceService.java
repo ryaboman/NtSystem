@@ -14,4 +14,6 @@ import java.util.Optional;
 @Service
 public interface DeviceService {
     List<Device> findByNameContaining(String deviceName);
+    Device save(Device device);
+    List<Device> findAll();
 }
