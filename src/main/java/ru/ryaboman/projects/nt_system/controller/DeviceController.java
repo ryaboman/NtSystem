@@ -1,7 +1,6 @@
 package ru.ryaboman.projects.nt_system.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.ryaboman.projects.nt_system.entity.Device;
 import ru.ryaboman.projects.nt_system.service.DeviceService;

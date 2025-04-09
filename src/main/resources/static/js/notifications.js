@@ -27,7 +27,7 @@ $(document).ready(function(){
 	);
 	
 	//Автозаполнение темы
-	$('#autocompleteSubject').autocomplete('/notifications/autocompleteSubject/', {
+	$('#autocompleteSubject').autocomplete('/subjects', {
 		delay:300,
 		minChars:3,
 		matchSubset:1,
@@ -37,7 +37,7 @@ $(document).ready(function(){
 	);
 	
 	//Автозаполнение изделия вкладка выборка ИИ
-	$('#QrDevice').autocomplete('/notifications/autocompleteDevice/', {
+	$('#QrDevice').autocomplete('/devices', {
 		delay:300,
 		minChars:3,
 		matchSubset:1,
@@ -48,7 +48,7 @@ $(document).ready(function(){
 	
 	
 	//Автозаполнение темы вкладка выборка ИИ
-	$('#QrSubject').autocomplete('/notifications/autocompleteSubject/', {
+	$('#QrSubject').autocomplete('/subjects', {
 		delay:300,
 		minChars:3,
 		matchSubset:1,
@@ -76,8 +76,6 @@ $(document).ready(function(){
 			formDevice["name"] = document.getElementById('AddNameDevice').value;
 			formDevice["mark"] = document.getElementById('AddMarkDevice').value;
 			formDevice["_csrf"] = document.querySelector('meta[name=\'_csrf\']').content;
-			var form = document.getElementById('FormAddDevice');
-			var device = $('#FormAddDevice').serialize(); //собераем все данные из формы
             $.ajax({
 				type: "POST", //Метод отправки
 				data: formDevice, //
@@ -98,16 +96,17 @@ $(document).ready(function(){
 	//Отправка формы добавления темы в БД
 	$("#FormAddSubject").submit(function(event) { //устанавливаем событие отправки для формы с id=form
 			event.preventDefault();
-			
-			var subjectName = document.getElementById('AddNameSubject').value;
-			var subjectMark = document.getElementById('AddMarkSubject').value;
-			var subjectManager = document.getElementById('AddManagerSubject').value;
-			
-			//var form_data = $(this).serialize(); //собераем все данные из формы
+
+			var formSubject = {}
+			formSubject["name"] = document.getElementById('AddNameSubject').value;
+		    formSubject["mark"] = document.getElementById('AddMarkSubject').value;
+			formSubject["manager"] = document.getElementById('AddManagerSubject').value;
+		    formSubject["_csrf"] = document.querySelector('meta[name=\'_csrf\']').content;
+
             $.ajax({
 				type: "POST", //Метод отправки
-				url: "/notifications/addSubject", //путь до php файла отправителя
-				data: {subjectName: subjectName, subjectMark: subjectMark, subjectManager: subjectManager},
+				url: "/subjects", //путь до php файла отправителя
+				data: formSubject,
 				success: function(data) {					
 					alert(data);
 					document.getElementById('FormAddSubject').style.display='none';					

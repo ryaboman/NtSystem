@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+	<head>
+		<title>Изделия</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="/css/panels.css">
+		<link rel="shortcut icon" href="/images/favicon_0.ico" type="image/x-icon">
+	</head>
+	<body>
+		<main class="main">
+		
+			<h3 class="Header">Таблица тем</h3>
+		
+			<table>
+				<tr>
+					<th>Наименование</th>
+					<th>Обозначение</th>
+					<th>Руководитель темы</th>
+				</tr>
+				<tr th:each="subject : ${subjects}">
+					<td th:text="${subject.getName()}">Onions</td>
+					<td th:text="${subject.getMark()}">2.41</td>
+					<td th:text="${subject.getManager()}">Onions</td>
+				</tr>
+			</table>
+			
+		</main>
+
+			<div th:insert="~{panels :: panels}"></div>
+		
+	</body>
+
+	
+
+</html>

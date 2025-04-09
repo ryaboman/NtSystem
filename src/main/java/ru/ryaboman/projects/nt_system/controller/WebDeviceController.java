@@ -8,10 +8,10 @@ import ru.ryaboman.projects.nt_system.service.DeviceService;
 
 @AllArgsConstructor
 @Controller
-public class Test {
+public class WebDeviceController {
     private final DeviceService deviceService;
 
-    @GetMapping("/devices")
+    @GetMapping("/devices5")
     public String getDevices(Model model) {
         model.addAttribute("devices", deviceService.findAll());
         return "devices";
