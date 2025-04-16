@@ -1,10 +1,19 @@
 package ru.ryaboman.projects.ntsystem.backend.controller;
 
+import io.minio.MakeBucketArgs;
+import io.minio.MinioClient;
+import io.minio.errors.*;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.*;
+import ru.ryaboman.projects.ntsystem.backend.config.MinioClientConfig;
 import ru.ryaboman.projects.ntsystem.backend.entity.Device;
 import ru.ryaboman.projects.ntsystem.backend.service.DeviceService;
+import ru.ryaboman.projects.ntsystem.backend.util.MinioUtil;
 
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -12,6 +21,7 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class DeviceController {
     private final DeviceService deviceService;
+    private final MinioUtil minioUtil;
 
     @GetMapping("/devices")
     public List<Device> findAllDevices() {
@@ -20,6 +30,9 @@ public class DeviceController {
 
     @GetMapping("/devices/{id}")
     public Device findByIdDevices(@PathVariable Long id) {
+
+        minioUtil.createBucketName("files");
+
         return deviceService.findById(id);
     }
 
