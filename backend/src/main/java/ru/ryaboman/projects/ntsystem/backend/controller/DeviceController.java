@@ -3,6 +3,7 @@ package ru.ryaboman.projects.ntsystem.backend.controller;
 import io.minio.MakeBucketArgs;
 import io.minio.MinioClient;
 import io.minio.errors.*;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +43,7 @@ public class DeviceController {
     }
 
     @PostMapping("/devices")
-    public Device addDevice(@ModelAttribute(name = "device") Device device) {
+    public Device addDevice(@Valid @ModelAttribute(name = "device") Device device) {
         deviceService.save(device);
         return device;
     }
