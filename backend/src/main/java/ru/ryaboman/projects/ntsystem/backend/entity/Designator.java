@@ -1,0 +1,5 @@
+package ru.ryaboman.projects.ntsystem.backend.entity;
+
+public class Designator {
+
+}

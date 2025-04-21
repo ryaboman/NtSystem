@@ -11,10 +11,6 @@ import ru.ryaboman.projects.ntsystem.backend.config.MinioClientConfig;
 import ru.ryaboman.projects.ntsystem.backend.entity.Device;
 import ru.ryaboman.projects.ntsystem.backend.service.DeviceService;
 import ru.ryaboman.projects.ntsystem.backend.util.MinioUtil;
-
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -31,9 +27,7 @@ public class DeviceController {
 
     @GetMapping("/devices/{id}")
     public Device findByIdDevices(@PathVariable Long id) {
-
         minioUtil.createBucketName("files");
-
         return deviceService.findById(id);
     }
 
@@ -43,7 +37,7 @@ public class DeviceController {
     }
 
     @PostMapping("/devices")
-    public Device addDevice(@Valid @ModelAttribute(name = "device") Device device) {
+    public Device addDevice(@Valid @RequestBody Device device) {
         deviceService.save(device);
         return device;
     }
