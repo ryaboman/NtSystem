@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "devices")
 @Getter
@@ -23,5 +25,8 @@ public class Device {
 
     @NotBlank(message = "Обозначение изделия не должно быть пустым")
     String mark;
+
+    //DeviceView deviceView;
+    //List<Document> documentList;
 }
 

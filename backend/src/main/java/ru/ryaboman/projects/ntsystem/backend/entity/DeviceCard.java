@@ -1,4 +1,4 @@
 package ru.ryaboman.projects.ntsystem.backend.entity;
 
-public class Drawing {
+public class DeviceCard {
 }
