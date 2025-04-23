@@ -9,8 +9,16 @@ import lombok.Data;
 public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
     private String title;
     private String description;
     private String mark;
+
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+//    @JoinTable(
+//            name = "documents_devices"
+//            , joinColumns = @JoinColumn(name = "id_document")
+//            , inverseJoinColumns = @JoinColumn(name = "id_device")
+//    )
+//    private Device device;
 }

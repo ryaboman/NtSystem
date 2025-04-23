@@ -27,6 +27,12 @@ public class Device {
     String mark;
 
     //DeviceView deviceView;
-    //List<Document> documentList;
+    @OneToMany()
+    @JoinTable(
+            name = "documents_devices"
+            , joinColumns = @JoinColumn(name = "id_device")
+            , inverseJoinColumns = @JoinColumn(name = "id_document")
+    )
+    List<Document> documentList;
 }
 
