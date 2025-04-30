@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Table(name = "devices")
@@ -34,5 +35,7 @@ public class Device {
             , inverseJoinColumns = @JoinColumn(name = "id_document")
     )
     List<Document> documentList;
+
+    //Map<String, Device> deviceComposition;
 }
 

@@ -41,5 +41,4 @@ public class DeviceController {
         deviceService.save(device);
         return device;
     }
-
 }
