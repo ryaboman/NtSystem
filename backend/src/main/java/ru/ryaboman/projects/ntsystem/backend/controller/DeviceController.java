@@ -15,28 +15,28 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController()
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/devices")
 public class DeviceController {
     private final DeviceService deviceService;
     private final MinioUtil minioUtil;
 
-    @GetMapping("/devices")
+    @GetMapping
     public List<Device> findAllDevices() {
         return deviceService.findAll();
     }
 
-    @GetMapping("/devices/{id}")
+    @GetMapping("/{id}")
     public Device findByIdDevices(@PathVariable Long id) {
         minioUtil.createBucketName("files");
         return deviceService.findById(id);
     }
 
-    @GetMapping("/devices/name/{name}")
+    @GetMapping("/name/{name}")
     public List<Device> findByNameDevices(@PathVariable String name) {
         return deviceService.findByNameContaining(name);
     }
 
-    @PostMapping("/devices")
+    @PostMapping
     public Device addDevice(@Valid @RequestBody Device device) {
         deviceService.save(device);
         return device;
