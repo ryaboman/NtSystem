@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+	<head>
+		<title>Добавить изделие</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="/css/panels.css">
+		<link rel="shortcut icon" href="/images/favicon_0.ico" type="image/x-icon">
+	</head>
+	<body>
+		<main class="main">
+
+			<form action="#" th:action="@{/devices}" th:object="${device}" class="dialog_box" id="FormAddDevice" th:method="post" name="FormAddDevice" >
+				<div id="windowAddDevice">
+					<fieldset id="AddDevice">
+						<legend>Форма добавления изделия в БД</legend>
+
+						<div class="field">
+							<label>Наименование изделия</label>
+							<input type="text" id="AddNameDevice" th:field="*{name}" autocomplete="off" required>
+						</div>
+
+						<div class="field">
+							<label>Обозначение изделия</label>
+							<input type="text" id="AddMarkDevice" th:field="*{mark}" autocomplete="off" required>
+						</div>
+
+						<div id="buty">
+							<button type="button" class="btCancel" id="btCancel" style="cursor: pointer;">Отмена</button>
+							<button class="btSubmit" id="btAddDevice" type="submit" style="cursor: pointer;">Добавить</button>
+						</div>
+
+					</fieldset>
+				</div>
+			</form>
+			
+		</main>
+
+			<div th:insert="~{panels :: panels}"></div>
+		
+	</body>
+
+	
+
+</html>

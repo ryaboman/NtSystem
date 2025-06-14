@@ -1,5 +1,9 @@
 spring:
   application:
     name: NtSystem
+  http:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 10MB
 server:
   port: 8081

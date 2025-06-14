@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 	<head>
-		<title>Изделия</title>
+		<title th:text="${device.getMark()}"></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="viewport" content="width=device-width">
@@ -9,21 +9,73 @@
 		<link rel="shortcut icon" href="/images/favicon_0.ico" type="image/x-icon">
 	</head>
 	<body>
+
 		<main class="main">
 
+			<h3 class="Header">Страница изделия [[${device.getMark()}]]</h3>
 
-		
-			<h3 class="Header">Изделий "${device.getMark()}"</h3>
+			<div class="cardInfo">
+				<!--Карточка изделия-->
 
-			<h4 th:text="${device.getName()}">Onions</h4>
-			<h4 th:text="${device.getMark()}">2.41</h4>
+				<div class="elementInfo">
+					<h4>Наименование изделия</h4>
+					<h4 th:text="${device.getName()}">Onions</h4>
+				</div>
+
+				<div class="elementInfo">
+					<h4>Обозначение изделия</h4>
+					<h4 th:text="${device.getMark()}">2.41</h4>
+				</div>
+
+			</div>
+
+			<div>
+				<!--Список документов изделия-->
+				<a href="/devices/add">
+					<button>Добавить документ</button>
+				</a>
+			</div>
+
+			<div>
+				<!--Дерево состава изделия-->
+			</div>
+
+			<form enctype="multipart/form-data" action="POST" th:action="@{/documents}" th:object="${document}" class="dialog_box" id="FormAddDocument" th:method="post" name="FormAddDocument" >
+				<div id="windowAddDocument">
+					<fieldset id="AddDocument">
+						<legend>Форма добавления документа к изделию</legend>
+
+						<div class="field">
+							<label>Наименование документа</label>
+							<input type="text" id="AddNameDevice" th:field="*{title}" autocomplete="off" required>
+						</div>
+
+						<div class="field">
+							<label>Обозначение документа</label>
+							<input type="text" id="AddMarkDevice" th:field="*{mark}" autocomplete="off" required>
+						</div>
+
+						<div class="pdf">
+							<label for="a_summary">Путь к файлу (*.pdf)</label>
+							<input type="hidden" name="MAX_FILE_SIZE" value="9000000"></input>
+							<input type="file" accept="application/pdf" name="file"></input>
+						</div>
+
+						<div id="buty">
+							<button type="button" class="btCancel" id="btCancel" style="cursor: pointer;">Отмена</button>
+							<a href="/devices/add">
+								<button class="btSubmit" id="btAddDevice" type="submit" style="cursor: pointer;">Добавить</button>
+							</a>
+						</div>
+
+					</fieldset>
+				</div>
+			</form>
 			
 		</main>
 
-			<div th:insert="~{panels :: panels}"></div>
+		<div th:insert="~{panels :: panels}"></div>
 		
 	</body>
-
-	
 
 </html>

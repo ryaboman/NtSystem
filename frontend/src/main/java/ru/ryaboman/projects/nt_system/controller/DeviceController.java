@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.ryaboman.projects.nt_system.Communication;
 import ru.ryaboman.projects.nt_system.model.Device;
+import ru.ryaboman.projects.nt_system.model.Document;
 
 import java.util.List;
 
@@ -26,8 +27,25 @@ public class DeviceController {
     @GetMapping("/{id}")
     public String getAllDevices(@PathVariable Long id, Model model) {
         Device device = communication.getDevice(id);
+        Document document = new Document();
+        document.setDevice(device);
+        document.setTitle(device.getName());
         model.addAttribute("device", device);
+        model.addAttribute("document", document);
         return "device";
+    }
+
+    @GetMapping("/add")
+    public String showPageAddDevice(Model model) {
+        Device device = new Device();
+        model.addAttribute("device", device);
+        return "addDevice";
+    }
+
+    @PostMapping
+    public String addDevice(@ModelAttribute(name = "device") Device device) {
+
+        return "devices";
     }
 
 }

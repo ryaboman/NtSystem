@@ -19,10 +19,16 @@
 					<th>Обозначение</th>
 				</tr>
 				<tr th:each="device : ${devices}">
-					<td th:text="${device.getName()}">Onions</td>
-					<td th:text="${device.getMark()}">2.41</td>
+					<td th:text="${device.getName()}"></td>
+					<td>
+						<a th:href="@{/devices/{deviceId}(deviceId=${device.getId()})}" th:text="${device.getMark()}">Text</a>
+					</td>
 				</tr>
 			</table>
+
+			<a href="/devices/add">
+				<button>Добавить</button>
+			</a>
 			
 		</main>
 
