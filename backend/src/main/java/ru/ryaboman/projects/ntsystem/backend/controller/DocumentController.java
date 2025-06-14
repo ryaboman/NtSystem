@@ -1,8 +1,10 @@
 package ru.ryaboman.projects.ntsystem.backend.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import ru.ryaboman.projects.ntsystem.backend.dto.DTODocument;
 import ru.ryaboman.projects.ntsystem.backend.entity.Device;
 import ru.ryaboman.projects.ntsystem.backend.entity.Document;
 import ru.ryaboman.projects.ntsystem.backend.service.DocumentService;
@@ -27,8 +29,8 @@ public class DocumentController {
         return documentService.findById(id);
     }
 
-    @PostMapping
-    public void addDocument(@RequestParam("document") Document document) {
-
+    @PostMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public String addDocument(@RequestPart("document") DTODocument dtoDocument, @RequestPart("file") MultipartFile file) {
+        return "uploaded";
     }
 }

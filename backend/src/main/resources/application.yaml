@@ -18,6 +18,7 @@ spring:
   servlet:
     multipart:
       max-file-size: 50MB
+      enabled: true
 
 #minio file server configuration
 s3:
