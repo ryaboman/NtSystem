@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+	<head>
+		<title>Изделия</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="/css/panels.css">
+		<link rel="shortcut icon" href="/images/favicon_0.ico" type="image/x-icon">
+	</head>
+	<body>
+		<main class="main">
+
+
+		
+			<h3 class="Header">Изделий "${device.getMark()}"</h3>
+
+			<h4 th:text="${device.getName()}">Onions</h4>
+			<h4 th:text="${device.getMark()}">2.41</h4>
+			
+		</main>
+
+			<div th:insert="~{panels :: panels}"></div>
+		
+	</body>
+
+	
+
+</html>

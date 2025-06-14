@@ -1,4 +1,5 @@
 spring:
   application:
     name: NtSystem
-
+server:
+  port: 8081

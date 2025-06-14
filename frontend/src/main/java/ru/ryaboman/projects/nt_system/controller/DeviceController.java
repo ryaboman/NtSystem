@@ -1,26 +1,33 @@
 package ru.ryaboman.projects.nt_system.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.ryaboman.projects.nt_system.entity.Device;
-import ru.ryaboman.projects.nt_system.service.DeviceService;
+import ru.ryaboman.projects.nt_system.Communication;
+import ru.ryaboman.projects.nt_system.model.Device;
 
 import java.util.List;
 
 @AllArgsConstructor
-@RestController
+@Controller
+@RequestMapping("/devices")
 public class DeviceController {
-    private final DeviceService deviceService;
+    //private final DeviceService deviceService;
+    private final Communication communication;
 
-    @RequestMapping("/devices")
-    public List<Device> findDevices(@RequestParam(value = "q", required = true) String deviceName) {
-        return deviceService.findByNameContaining(deviceName);
+    @GetMapping
+    public String getAllDevices(Model model) {
+        List<Device> devices = communication.getAllDevices();
+        model.addAttribute("devices", devices);
+        return "devices";
     }
 
-    @PostMapping("/devices")
-    public Boolean addDevice(@ModelAttribute(name = "device") Device device) {
-        deviceService.save(device);
-        return true;
+    @GetMapping("/{id}")
+    public String getAllDevices(@PathVariable Long id, Model model) {
+        Device device = communication.getDevice(id);
+        model.addAttribute("device", device);
+        return "device";
     }
 
 }
