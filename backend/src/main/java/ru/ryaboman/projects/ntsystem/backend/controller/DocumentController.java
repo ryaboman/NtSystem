@@ -1,5 +1,6 @@
 package ru.ryaboman.projects.ntsystem.backend.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,11 @@ import ru.ryaboman.projects.ntsystem.backend.entity.Device;
 import ru.ryaboman.projects.ntsystem.backend.entity.Document;
 import ru.ryaboman.projects.ntsystem.backend.service.DocumentService;
 import ru.ryaboman.projects.ntsystem.backend.util.MinioUtil;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @RequiredArgsConstructor
 @RestController
@@ -31,6 +37,15 @@ public class DocumentController {
 
     @PostMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public String addDocument(@RequestPart("document") DTODocument dtoDocument, @RequestPart("file") MultipartFile file) {
-        return "uploaded";
+        if (file.isEmpty()) {
+            return "Not uploaded";
+        }
+
+        String fileName = dtoDocument.getMark() + "/" + file.getOriginalFilename();
+        if(minioUtil.bucketExists("files") && minioUtil.getPreviewFileUrl("files", fileName).isBlank()){
+            minioUtil.minioUpload(file, fileName, "files");
+        }
+
+        return "Uploaded";
     }
 }

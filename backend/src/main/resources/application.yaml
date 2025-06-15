@@ -19,6 +19,7 @@ spring:
     multipart:
       max-file-size: 50MB
       enabled: true
+      max-request-size: 10MB
 
 #minio file server configuration
 s3:
