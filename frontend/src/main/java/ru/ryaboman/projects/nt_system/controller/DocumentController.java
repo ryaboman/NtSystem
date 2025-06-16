@@ -1,6 +1,8 @@
 package ru.ryaboman.projects.nt_system.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,34 +10,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import ru.ryaboman.projects.nt_system.Communication;
 import ru.ryaboman.projects.nt_system.dto.DTODocument;
 import ru.ryaboman.projects.nt_system.model.Document;
+import ru.ryaboman.projects.nt_system.service.DocumentService;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @Controller
 @RequestMapping("/documents")
 public class DocumentController {
-    private final Communication communication;
-
-    // Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER =
-            "/home/user/Desktop/files/";
+    private final DocumentService documentService;
 
     @PostMapping
-    public String addDocument(@RequestParam("file") MultipartFile file, @ModelAttribute(name = "document") DTODocument document, Model model) {
+    public ResponseEntity<Document> addDocument(@RequestParam("file") MultipartFile file, @ModelAttribute(name = "document") DTODocument dtoDocument, Model model) {
 
-        String response = communication.addDocument(document, file);
-        model.addAttribute("response", response);
+        Document document = documentService.save(dtoDocument, file);
+        model.addAttribute("response", document);
 
-        return "devices";
+        return new ResponseEntity<>(document, HttpStatus.CREATED);
     }
 }

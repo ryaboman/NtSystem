@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.ryaboman.projects.nt_system.Communication;
 import ru.ryaboman.projects.nt_system.model.Device;
 import ru.ryaboman.projects.nt_system.model.Document;
+import ru.ryaboman.projects.nt_system.service.DeviceService;
 
 import java.util.List;
 
@@ -14,19 +14,19 @@ import java.util.List;
 @Controller
 @RequestMapping("/devices")
 public class DeviceController {
-    //private final DeviceService deviceService;
-    private final Communication communication;
+
+    private final DeviceService deviceService;
 
     @GetMapping
     public String getAllDevices(Model model) {
-        List<Device> devices = communication.getAllDevices();
+        List<Device> devices = deviceService.findAll();
         model.addAttribute("devices", devices);
         return "devices";
     }
 
     @GetMapping("/{id}")
     public String getAllDevices(@PathVariable Long id, Model model) {
-        Device device = communication.getDevice(id);
+        Device device = deviceService.findById(id);
         Document document = new Document();
         document.setDevice(device);
         document.setTitle(device.getName());
