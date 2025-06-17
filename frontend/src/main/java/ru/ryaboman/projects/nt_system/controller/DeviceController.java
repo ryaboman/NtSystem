@@ -1,6 +1,8 @@
 package ru.ryaboman.projects.nt_system.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,9 +45,11 @@ public class DeviceController {
     }
 
     @PostMapping
-    public String addDevice(@ModelAttribute(name = "device") Device device) {
+    public ResponseEntity<Device> addDevice(@ModelAttribute(name = "device") Device device) {
 
-        return "devices";
+        Device deviceFromService = deviceService.save(device);
+
+        return new ResponseEntity<>(deviceFromService, HttpStatus.CREATED);
     }
 
 }

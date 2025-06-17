@@ -3,11 +3,13 @@ package ru.ryaboman.projects.nt_system.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import ru.ryaboman.projects.nt_system.model.Device;
+import ru.ryaboman.projects.nt_system.model.Document;
 
 import java.util.List;
 
@@ -30,7 +32,17 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Override
     public Device save(Device device) {
-        return null;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+
+        HttpEntity<Device> requestEntity = new HttpEntity<>(device, headers);
+
+        ResponseEntity<Device> response = restTemplate.postForEntity(BASE_URL + URL_DEVICES, requestEntity, Device.class);
+        System.out.println(response.getBody());
+
+        return response.getBody();
     }
 
     @Override
