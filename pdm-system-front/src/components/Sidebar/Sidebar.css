@@ -1,0 +1,220 @@
+/* Sidebar.css */
+
+/* Базовые стили */
+.nav a {
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+  color: #7d87a8;
+}
+
+/* Основной контент */
+.main {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  width: calc(100% - 60px);
+  min-height: 100vh;
+  height: 100%;
+  margin-left: 60px;
+  background-color: #eeeeee;
+  transition: 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+  z-index: 1;
+}
+
+.main.is-active {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  width: calc(100vw - 60px);
+  pointer-events: none;
+  opacity: 0.25;
+  transform: scale(0.9) translate3d(40%, 0, 0);
+}
+
+@media (min-width: 600px) {
+  .main.is-active {
+    transform: scale(0.9) translate3d(20%, 0, 0);
+  }
+}
+
+.main.is-transition-out {
+  clip-path: inset(0 0 0 100%);
+}
+
+/* Боковая панель */
+.nav__bar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 100vh;
+  border-right: 1px solid rgba(125, 135, 168, 0.25);
+  background-color: #191b22;
+  z-index: 99;
+}
+
+/* Кнопка меню */
+.nav__trigger {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  padding: 8px 0;
+  margin-top: -10px;
+  transition: 0.2s ease-in-out;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.nav__trigger .bars {
+  position: relative;
+}
+
+.nav__trigger .bars,
+.nav__trigger .bars:before,
+.nav__trigger .bars:after {
+  width: 28px;
+  height: 4px;
+  background-color: #7d87a8;
+  transition: 0.2s ease-in-out;
+  border-radius: 4px;
+}
+
+.nav__trigger .bars:before,
+.nav__trigger .bars:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.nav__trigger .bars:before {
+  transform: translateY(-8px);
+}
+
+.nav__trigger .bars:after {
+  transform: translateY(8px);
+}
+
+.nav__trigger.is-active {
+  transform: rotate(-45deg);
+}
+
+.nav__trigger.is-active .bars:before,
+.nav__trigger.is-active .bars:after {
+  transform: translateX(0) rotate(-90deg);
+}
+
+/* Навигационное меню */
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #191b22;
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Список меню */
+.nav__list {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding-left: 60px;
+  list-style: none;
+  font-family: "Raleway", "Open Sans", sans-serif;
+  transform: translateY(-50%);
+}
+
+.nav__list .nav__item {
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 600px) {
+  .nav__list .nav__item {
+    width: 33.3333333333%;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Ссылки меню */
+.nav__list a {
+  display: inline-block;
+  color: #7d87a8;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.nav__list a:hover {
+  color: #b1b7cb;
+}
+
+.nav__list a.is-active {
+  color: #d2d5e1;
+}
+
+@media (min-width: 600px) {
+  .nav__list a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Состояние frozen для body */
+body.is-froze {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Добавьте эти стили в Sidebar.css */
+
+/* Убедитесь, что кнопка меню кликабельна */
+.nav__trigger {
+  cursor: pointer;
+}
+
+/* Сделайте ссылки меню кликабельными */
+.nav__list a {
+  cursor: pointer;
+}
+
+/* Убедитесь, что меню поверх всего */
+.nav {
+  z-index: 1000 !important;
+}
+
+/* Для тестирования - добавьте рамку чтобы видеть границы
+.nav.is-active {
+  border: 2px solid red; /* Удалите после тестирования
+} */
+
+/* Убедитесь, что меню видимо при активном состоянии */
+.nav.is-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* Анимация для плавного появления */
+.nav {
+  transition: all 0.3s ease !important;
+}
