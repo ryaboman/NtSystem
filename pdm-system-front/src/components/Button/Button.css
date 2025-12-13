@@ -1,0 +1,14 @@
+.button{
+	padding: 10px 0;
+	border-width: 0;
+	display: block;
+	width: 120px;
+	margin: 25px auto 0;
+	/* background: #FF6347; */
+	/* background: #23b319; */
+	color: white;
+	font-size: 14px;
+	outline: none;
+	text-transform: uppercase;
+    cursor: pointer;
+}

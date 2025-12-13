@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
 import './App.css';
+import AddDeviceForm from './components/AddDevice/AddDevice';
 
 // Простые компоненты страниц
 const HomePage = () => (
@@ -9,6 +10,7 @@ const HomePage = () => (
     <h1>Главная страница</h1>
     <p>Добро пожаловать в систему управления производственными данными</p>
     <p>Меню должно открываться по клику на кнопку слева</p>
+    <AddDeviceForm/>
   </div>
 );
 
@@ -18,6 +20,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+  
         <Sidebar />
         
         {/* Основной контент приложения - ДОЛЖЕН БЫТЬ DIV С КЛАССОМ main */}
