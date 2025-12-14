@@ -14,6 +14,16 @@ const HomePage = () => (
   </div>
 );
 
+const NotFound = () => (
+  <div className="page-content">
+    <h1>Такая страница не существует!</h1>
+		<h1>404</h1>
+    <p>
+		  <img alt='img' src='./assets/images/bg.jpg'/>
+		</p>
+  </div>
+);
+
 // ... остальные компоненты страниц (как в предыдущем коде)
 
 function App() {
@@ -33,6 +43,7 @@ function App() {
             <Route path="/notifications" element={<h1>Извещения</h1>} />
             <Route path="/drawing" element={<h1>Систематизированные чертежи</h1>} />
             <Route path="/screws" element={<h1>Изделия крепежные</h1>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>
