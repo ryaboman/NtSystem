@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar/Sidebar';
-import './App.css';
-import AddDeviceForm from './components/AddDevice/AddDevice';
+// import Sidebar from './components/Sidebar/Sidebar';
+// import './App.css';
+// import AddDeviceForm from './components/AddDevice/AddDevice';
+import LoginRegistrationForm from './components/LoginRegistrationForm/LoginRegistrationForm';
 
 // Простые компоненты страниц
 const HomePage = () => (
@@ -10,18 +11,14 @@ const HomePage = () => (
     <h1>Главная страница</h1>
     <p>Добро пожаловать в систему управления производственными данными</p>
     <p>Меню должно открываться по клику на кнопку слева</p>
-    <AddDeviceForm/>
+    {/* <AddDeviceForm/> */}
   </div>
 );
 
 const NotFound = () => (
-  <div className="page-content">
-    <h1>Такая страница не существует!</h1>
-		<h1>404</h1>
-    <p>
-		  <img alt='img' src='./assets/images/bg.jpg'/>
-		</p>
-  </div>
+  <>
+    <LoginRegistrationForm />
+  </>
 );
 
 // ... остальные компоненты страниц (как в предыдущем коде)
@@ -31,7 +28,7 @@ function App() {
     <Router>
       <div className="app">
   
-        <Sidebar />
+        {/* <Sidebar /> */}
         
         {/* Основной контент приложения - ДОЛЖЕН БЫТЬ DIV С КЛАССОМ main */}
         <div className="main">
