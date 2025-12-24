@@ -1,8 +1,8 @@
-import './Button.css'
+import classes from './Button.module.css'
 
 export default function Button( {type, background, children} ){
     return (
-        <button type={type} className="button active" style={{background: background}}>
+        <button type={type} className={`${classes.button} ${classes.active}`} style={{background: background}}>
             {children}
         </button>
     )
