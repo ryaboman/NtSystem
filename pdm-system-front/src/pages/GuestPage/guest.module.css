@@ -1,0 +1,264 @@
+/* Общие глобальные стили */
+* {
+  box-sizing: border-box;
+}
+
+.container{
+  padding: 1rem .5rem;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  max-width: 60rem;
+  margin: 0 auto;
+  color: #333;
+}
+
+a {
+  color: #4a4a4a;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Классы для React компонента */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.logoWrapper {
+  display: block;
+}
+
+.strap {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Навигация в шапке */
+.menu {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  flex-wrap: wrap;
+  border-top: 8px double #f9f9f9;
+  border-bottom: 8px double #f9f9f9;
+}
+
+.menuLink {
+  text-decoration: none;
+  color: #4a4a4a;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+}
+
+.menuLink:hover {
+  background-color: #f9f9f9;
+}
+
+/* Основное содержимое */
+.content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin-bottom: 2rem;
+}
+
+/* Левая колонка - миссия */
+.imgMis {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  width: 55%;
+}
+
+.textMis {
+  padding-left: 40px;
+  padding-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Правая колонка - инструкции */
+.imp {
+  padding-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  width: 40%;
+}
+
+.headline {
+  font-size: 25px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.hhyp {
+  width: 350px;
+  padding-top: 10px;
+  padding-left: 40px;
+  list-style-type: none;
+}
+
+.navItem {
+  margin-bottom: 15px;
+}
+
+.navLink {
+  color: #4a4a4a;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.navLink:hover {
+  background-color: #f9f9f9;
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 8px double #f9f9f9;
+  display: flex;
+  height: 135px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logoFooter {
+  display: flex;
+  align-items: center;
+}
+
+.menuFooter {
+  display: flex;
+  width: 65%;
+  padding-right: 3%;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+/* Дополнительные стили для других страниц */
+.detailsBlock {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: top;
+  justify-content: space-around;
+}
+
+.descriptionForm {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 18px;
+}
+
+/* Стили для авторизации */
+.rField {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.signup {
+  width: 150px;
+  float: center;
+}
+
+.signup a {
+  width: 100%;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  padding: 0 8px;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+  border-radius: 0 3px 3px 0;
+}
+
+.signup a:hover {
+  background: #fff;
+}
+
+/* Медиа-запросы */
+@media screen and (min-width: 50rem) {
+  .container {
+    border-left: 4px solid #f9f9f9;
+    border-right: 4px solid #f9f9f9;
+    padding: 1rem 2rem;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .imgMis,
+  .imp {
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  .textMis {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .hhyp {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .menu,
+  .menuFooter {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  .menuLink,
+  .navLink {
+    display: block;
+    text-align: center;
+    margin: 5px 0;
+  }
+  
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0;
+  }
+  
+  .menuFooter {
+    width: 100%;
+    padding-right: 0;
+    margin-top: 20px;
+  }
+}

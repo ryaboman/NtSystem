@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './Sidebar.css';
+import classes from './Sidebar.module.css';
 
 const Sidebar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -15,11 +15,7 @@ const Sidebar = () => {
     { path: '/devices', label: 'Изделия' },
     { path: '/documents', label: 'Документы' },
     { path: '/notifications', label: 'Извещения' },
-    { 
-      path: '/drawing', 
-      label: ['Систематизированные', 'чертежи']
-    },
-    { path: '/screws', label: 'Изделия крепежные' },
+    { path: '/directories', label: 'Справочники' },
     { path: '/logout', label: 'Выход' },
   ];
 
@@ -108,24 +104,24 @@ const Sidebar = () => {
   return (
     <>
       {/* Боковая панель с кнопкой меню */}
-      <div className="nav__bar" ref={menuRef}>
+      <div className={`${classes.nav__bar}`} ref={menuRef}>
         <a 
           href="#" 
-          className={`nav__trigger ${isNavOpen ? 'is-active' : ''}`}
+          className={`${classes.nav__trigger} ${isNavOpen ? classes['is-active'] : ''}`}
           onClick={handleNavTriggerClick}
         >
-          <div className="bars"></div>
+          <div className={`${classes.bars}`}></div>
         </a>
       </div>
 
       {/* Навигационное меню */}
-      <nav className={`nav ${isNavOpen ? 'is-active' : ''}`}>
-        <ul className="nav__list">
+      <nav className={`${classes.nav} ${isNavOpen ? classes['is-active'] : ''}`}>
+        <ul className={`${classes.nav__list}`}>
           {menuItems.map((item) => (
-            <li key={item.path} className="nav__item">
+            <li key={item.path} className={`${classes.nav__item}`}>
               <a
                 href={item.path}
-                className={activeItem === item.path ? 'is-active' : ''}
+                className={activeItem === item.path ? `${classes['is-active']}` : ''}
                 onClick={(e) => handleMenuItemClick(item, e)}
               >
                 {renderLabel(item.label)}
